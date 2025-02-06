@@ -1,0 +1,137 @@
+.admin-add-new-routine-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    width: 70%;
+}
+
+.admin-add-new-routine-name {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+    p {
+        margin: 5px;
+    }
+}
+.admin-add-new-routine-head input {
+    width: 250px;
+    height: 30px;
+    font-size: 16px;
+    padding-left: 10px;
+    margin-right: 10px;
+
+    border-radius: 5px;
+}
+
+.admin-add-new-routine-head input:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+}
+
+.admin-add-new-routine-level {
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+
+    select {
+        width: 250px;
+        height: 30px;
+        font-size: 16px;
+        padding-left: 10px;
+        margin-right: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    }
+}
+
+.admin-add-new-routine-days {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+        width: 80%;
+        list-style: none;
+
+        li {
+            margin: 10px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            border-bottom: 1px solid black;
+        }
+    }
+}
+
+.admin-add-new-routine-days button {
+    font-size: 15px;
+    font-family: Arial;
+    width: 100px;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #057fd0;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #5b6178;
+    background: linear-gradient(#33bdef, #019ad2);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.admin-add-new-routine-days button:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    background: linear-gradient(#019ad2, #33bdef);
+}
+
+.admin-add-new-routine-save-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.admin-add-new-routine-save-buttons button {
+    font-size: 15px;
+    font-family: Arial;
+    width: 200px;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #057fd0;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #5b6178;
+    background: linear-gradient(#33bdef, #019ad2);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.admin-add-new-routine-save-buttons button:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    background: linear-gradient(#019ad2, #33bdef);
+}

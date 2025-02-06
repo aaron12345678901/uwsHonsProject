@@ -1,0 +1,159 @@
+.User-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.User-profile-container {
+    background-color: #d1e0e0;
+    width: 70vw;
+    border-radius: 8px;
+    border: 1px solid black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.profile-top-section {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    align-items: center;
+    h2{
+        color: #000000;
+    }
+}
+
+.profile-top-section-left {
+    display: flex;
+    flex-direction: column;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    word-spacing: -1.2px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    margin-left: 20px;
+    width: 60%;
+    transition: font-size 0.3s ease, transform 0.7s ease-in-out;
+}
+
+.profile-top-section-left:hover {
+    font-size: large;
+    transition: font-size 0.3s ease, transform 0.7s ease-in-out;
+}
+
+.profile-top-section-left-order {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-top-section-right {
+    width: 40%;
+    text-align: center;
+}
+
+.profile-top-section-right button {
+    background-color: #a4d4ae;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.profile-top-section-right button:hover {
+    background-color: #89c788;
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+}
+
+@media screen and (min-width: 1000px) {
+    .User-profile-container {
+        width: 40vw;
+    }
+}
+
+.profile-new-routine-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.profile-new-routine {
+    border: #000000 2px solid;
+    width: 40%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    background-image: url("../generic-img/profile-new-routine.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    color: #f0f7fa;
+    text-shadow: 2px 2px 2px #ce5937;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.profile-new-routine:hover {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+}
+
+.users-workout {
+    display: flex;
+    flex-direction: column;
+}
+
+.users-workout li {
+    list-style: none;
+    font-size: larger;
+    border-bottom: 2px solid black;
+    width: 90%;
+    transition: font-size 0.3s ease, transform 0.7s ease-in-out;
+}
+
+.users-workout li:hover {
+    font-size: x-large;
+    transition: font-size 0.3s ease, transform 0.7s ease-in-out;
+}
+
+.users-workout-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.users-workout-row-button button {
+    background-color: #a4d4ae;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+}
+
+.users-workout-row-button button:hover {
+    background-color: #89c788;
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+}

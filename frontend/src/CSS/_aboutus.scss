@@ -1,0 +1,264 @@
+.Aboutus {
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-us-main {
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-us-head {
+    text-align: center;
+    background-image: url("../generic-img/about-us-first.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.about-us-head::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.about-us-head h1,
+.about-us-head p {
+    z-index: 2;
+    max-width: 80%;
+}
+
+.about-us-head h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about-us-head p {
+    font-size: 1.8rem;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.about-us-second-section {
+    text-align: center;
+
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    position: relative;
+}
+
+.about-us-second-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.about-us-second-section h1,
+.about-us-second-section p {
+    z-index: 2;
+    max-width: 80%;
+}
+
+.about-us-second-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about-us-second-section p {
+    font-size: 1.8rem;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.about-us-third {
+    text-align: center;
+    background-image: url("../generic-img/about-us-two.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.about-us-third::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.about-us-third h1,
+.about-us-third p {
+    z-index: 2;
+    max-width: 80%;
+}
+
+.about-us-third h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about-us-third p {
+    font-size: 1.8rem;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.about-us-fourth {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    position: relative;
+}
+
+.about-us-fourth h1,
+.about-us-fourth li {
+    z-index: 2;
+    max-width: 80%;
+}
+
+.about-us-fourth h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about-us-fourth ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-us-fourth li {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+html {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1000px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .about-us-head h1,
+    .about-us-head p,
+    .about-us-second-section h1,
+    .about-us-second-section p,
+    .about-us-third h1,
+    .about-us-third p,
+    .about-us-fourth h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .about-us-fourth li {
+        margin-bottom: 10px;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .about-us-fourth li {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (min-width: 580px) {
+    .aboutus-bottom h2{
+       font-size: 2.5rem;
+  
+    }
+}
+
+
+.aboutus-bottom{
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.aboutus-bottom h2{
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+.aboutus-bottom button{
+    font-size: 1.8rem;
+    line-height: 1.5;
+    width: 400px;
+    background-color:#A4D4AE ;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;}
+    
+    .aboutus-bottom button:hover {
+        background-color: #89C788;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }

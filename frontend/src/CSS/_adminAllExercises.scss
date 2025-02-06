@@ -1,0 +1,108 @@
+.admin-all-exercise-search {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 20px;
+}
+
+.admin-search-bar {
+    margin-left: 30px;
+    margin-right: 30px;
+    input {
+        width: 300px;
+        height: 30px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+    }
+}
+
+.admin-all-exercises-addExercise-button button {
+    font-size: 15px;
+    font-family: Arial;
+    width: 100px;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #057fd0;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #5b6178;
+    background: linear-gradient(#33bdef, #019ad2);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.admin-all-exercises-addExercise-button:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    background: linear-gradient(#019ad2, #33bdef);
+}
+
+.admin-all-exercises-button-divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.admin-all-edit-button button {
+    font-size: 15px;
+    font-family: Arial;
+    width: 100px;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #000000;
+    background: linear-gradient(#889200, #62f500);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.admin-all-edit-button button:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    background: linear-gradient(#62f500, #889200);
+}
+
+.admin-all-delete-button button {
+    font-size: 15px;
+    font-family: Arial;
+    width: 100px;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #057fd0;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #5b6178;
+    background: linear-gradient(#cf0000, #e20000);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.admin-all-delete-button button:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    background: linear-gradient(#cf0000, #e20000);
+}

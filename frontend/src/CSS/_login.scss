@@ -1,0 +1,110 @@
+.Register-page {
+    width: 100vw;
+}
+
+.App {
+    background-image: url("../generic-img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.nav {
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+.nav li a {
+    margin-left: 15px;
+    color: black;
+    text-decoration: none;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+}
+
+.nav li a :visited {
+    margin-left: 15px;
+    color: black;
+    text-decoration: none;
+}
+
+.nav li :hover {
+    margin-left: 15px;
+    text-decoration: underline;
+    font-size: larger;
+}
+
+.login-body-container {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form-container {
+    background-color: #d1e0e0;
+    width: 25vw;
+    border-radius: 8px;
+    border: 1px solid black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 600px;
+}
+
+.login-form-container h1 {
+    font-family: Georgia, serif;
+    font-size: 62px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+}
+
+.login-heading {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.login-form-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    max-width: 500px;
+    max-height: 40px;
+}
+
+.login-form-container input:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+}
+
+@media screen and (max-width: 1100px) {
+    .login-form-container {
+        width: 55vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .login-form-container h1 {
+        font-size: 35px;
+    }
+}

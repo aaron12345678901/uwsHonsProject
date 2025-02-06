@@ -1,0 +1,100 @@
+.Admin-Home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-home-heading {
+    margin-left: 40px;
+}
+
+.admin-home-links {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+.admin-home-links-left {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.admin-home-links-right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.admin-home-links-right h2 {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.admin-home-links-left h2 {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.admin-home-left-img {
+    border: #000000 2px solid;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    background-image: url("../generic-img/user.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    color: #f0f7fa;
+    text-shadow: 2px 2px 2px #ce5937;
+    cursor: pointer;
+    font-size: 30px;
+    background-color: #f0f7fa;
+}
+
+.admin-home-left-img:hover {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+}
+
+.admin-home-right-img {
+    border: #000000 2px solid;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    background-image: url("../generic-img/workout.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    color: #f0f7fa;
+    text-shadow: 2px 2px 2px #ce5937;
+    cursor: pointer;
+    font-size: 30px;
+    background-color: #f0f7fa;
+}
+
+.admin-home-right-img:hover {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+}

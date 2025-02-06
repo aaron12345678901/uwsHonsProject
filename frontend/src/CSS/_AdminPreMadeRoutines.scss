@@ -1,0 +1,129 @@
+.Admin-add-Exercise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-exercise-container-all {
+    margin-bottom: 50px;
+}
+
+.admin-pre-made-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.admin-pre-made-routines-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+
+        li {
+            margin-bottom: 20px;
+            border-bottom: 1px solid black;
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
+
+.admin-pre-made-routines-list-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    justify-content: center;
+}
+
+.admin-pre-made-routines-list-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.admin-button-divider {
+    display: flex;
+    width: 100%;
+
+    justify-content: space-evenly;
+}
+
+.admin-pre-made-routines-list-right button {
+    font-size: 15px;
+    font-family: Arial;
+    width: 40%;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #057fd0;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #5b6178;
+    background: linear-gradient(#33bdef, #019ad2);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.admin-pre-made-routines-list-right button:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    background: linear-gradient(#019ad2, #33bdef);
+}
+
+.admin-pre-made-routines-add-new-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.admin-pre-made-routines-add-new-button button {
+    font-size: 15px;
+    font-family: Arial;
+    width: 40%;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #057fd0;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #5b6178;
+    background: linear-gradient(#33bdef, #019ad2);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.admin-pre-made-routines-add-new-button button:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    background: linear-gradient(#019ad2, #33bdef);
+}

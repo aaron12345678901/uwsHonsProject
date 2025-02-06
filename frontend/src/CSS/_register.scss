@@ -1,0 +1,213 @@
+.Register-page {
+    width: 100vw;
+}
+
+.App {
+    background-image: url("../generic-img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.nav {
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+.nav li a {
+    margin-left: 15px;
+    color: black;
+    text-decoration: none;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+}
+
+.nav li a :visited {
+    margin-left: 15px;
+    color: black;
+    text-decoration: none;
+}
+
+.nav li :hover {
+    margin-left: 15px;
+    text-decoration: underline;
+    font-size: larger;
+}
+
+.register-body-container {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-form-container {
+    background-color: #d1e0e0;
+    width: 50vw;
+    border-radius: 8px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.register-form-container h1 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    margin-left: 30px;
+}
+
+.register-form-divider {
+    display: flex;
+    justify-content: center;
+}
+
+.register-form-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.register-form-left input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    max-width: 400px;
+}
+
+.register-form-left input:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+}
+
+.register-form-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.register-form-buttons button {
+    font-size: 15px;
+    font-family: Arial;
+    width: 140px;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #057fd0;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #5b6178;
+    background: linear-gradient(#33bdef, #019ad2);
+}
+
+.register-form-buttons button:hover {
+    background: linear-gradient(#019ad2, #33bdef);
+}
+
+.register-form-right {
+    display: flex;
+}
+
+.Exp-container-first {
+    border: #000000 2px solid;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    background-image: url("../generic-img/Exp-level-begginner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    color: #f0f7fa;
+    text-shadow: 2px 2px 2px #ce5937;
+}
+
+.Exp-container-first.selected {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.Exp-container-first input {
+    display: none;
+}
+
+.Exp-container-second {
+    border: #000000 2px solid;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    background-image: url("../generic-img/Exp-level-interm.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    color: #f0f7fa;
+    text-shadow: 2px 2px 2px #ce5937;
+}
+
+.Exp-container-second.selected {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.Exp-container-second input {
+    display: none;
+}
+
+.Exp-container-third {
+    border: #000000 2px solid;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    background-image: url("../generic-img/Exp-level-advanced.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    color: #f0f7fa;
+    text-shadow: 2px 2px 2px #ce5937;
+}
+
+.Exp-container-third.selected {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.Exp-container-third input {
+    display: none;
+}

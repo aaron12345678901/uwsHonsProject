@@ -1,0 +1,102 @@
+.Admin-all-users-heading h2{
+    color: black;
+    text-decoration: none;
+    text-transform: none;
+    font-size: x-large;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+  
+}
+
+
+.admin-all-users-list-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.admin-all-users-list-container ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+   
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-all-users-list-container li{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    border-bottom: 1px solid black;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+}
+
+.admin-all-users-list-container li:hover{
+    transform: translateY(-8px);
+    transition: transform 0.7s ease-in-out;
+}
+
+.admin-all-users-list-left{
+   display: flex;
+   flex-direction: row;
+   margin-bottom: 20px;
+   justify-content: left;
+   width: 50%;
+   h2{
+     font-size: x-large;
+     font-weight: bold;
+     color: #000000;
+     text-transform: none;
+   }
+}
+
+
+
+.admin-all-users-list-right{
+   display: flex;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+
+
+.admin-all-users-list-right button {
+    font-size: 15px;
+    font-family: Arial;
+    width: 100px;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #057fd0;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #5b6178;
+    background: linear-gradient(#33bdef, #019ad2);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+    margin-right: 10px;
+}
+
+.admin-all-users-list-right button:hover {
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    background: linear-gradient(#019ad2, #33bdef);
+}
