@@ -32,20 +32,31 @@ import AdminaddNewRoutine from "./admin-pages/AdminaddNewRoutine";
 import AdminEditRoutineWorkout from "./admin-pages/AdminEditRoutineWorkout";
 
 function App() {
-    return (
-        <BrowserRouter>
-            <div className="App">
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<Aboutus />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                </Routes>
-                <Footer />
-            </div>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<Aboutus />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          {/* users Routes */}
+          <Route path="/Userprofile" element={<Userprofile />} />
+          <Route path="/UserWorkout" element={<UserWorkout />} />
+
+
+         {/* {admin pages } */}
+          <Route path="/AdminAddExercise" element={<AdminAddExercise />} />
+
+          
+          
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;

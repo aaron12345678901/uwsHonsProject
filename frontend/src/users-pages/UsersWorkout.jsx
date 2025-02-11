@@ -1,163 +1,89 @@
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const UsersWorkout = () => {
+  const location = useLocation();
+  const { day, workoutName } = location.state || {
+    day: "No day selected",
+    workoutName: "No workout selected",
+  };
 
+  const [userData, setUserData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
- 
+  let id = JSON.parse(window.localStorage.getItem("id"));
 
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .post(
+        `http://localhost/php-react/firstfitness/GetUserWorkout.php?id=${id}&day=${day}`
+      )
+      .then((response) => {
+        setUserData(response.data);
+        console.log("Response data:", response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
+  }, [id, day]);
 
-    const UsersWorkout = {
-        day: "placeholder",
-        workoutName: "placeholder",
-        exercises: [
-          {
-            id: 1,
-            exerciseName: "placeholder",
-            sets: "placeholder",
-            reps: "placeholder",
-            restBetweenSets: "placeholder",
-            img: "placeholder"
-          },
-          {
-            id: 2,
-            exerciseName: "placeholder",
-            sets: "placeholder",
-            reps: "placeholder",
-            restBetweenSets: "placeholder",
-            img: "placeholder"
-          },
-          {
-            id: 3,
-            exerciseName: "placeholder",
-            sets: "placeholder",
-            reps: "placeholder",
-            restBetweenSets: "placeholder",
-            img: "placeholder"
-          },
-          {
-            id: 4,
-            exerciseName: "placeholder",
-            sets: "placeholder",
-            reps: "placeholder",
-            restBetweenSets: "placeholder",
-            img: "placeholder"
-          }
-        ],
-        WorkoutEstDuration:"placeholder",
-      };
+  return (
+    <div className="User-profile">
+      <div className="nav">
+        <ul>
+          <li>
+            <a href="#">About us</a>
+          </li>
+          <li>
+            <a href="#">Log out</a>
+          </li>
+        </ul>
+      </div>
 
-    return (
-        <div className="User-profile">
-            <div className="nav">
-                <ul>
-                    <li>
-                        <a href="#">About us</a>
-                    </li>
-                    <li>
-                        <a href="#">Log out</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div className="User-exercise-container">
-                <div className="userworkout-container-heading">
-                    <h1>{UsersWorkout.day} for day</h1>
-                    <h2>workout name {UsersWorkout.workoutName}</h2>
-                </div>
-
-                <div className="userworkout-container-body2">
-                    <ul>
-                        <li>
-                            <div className="user-exercise-left">
-                                <h1>{UsersWorkout.exercises[0].exerciseName}</h1>
-                                <h3>reps: {UsersWorkout.exercises[0].reps}</h3>
-                                <h3>sets: {UsersWorkout.exercises[0].sets}</h3>
-                                <h3>Rest Between Sets:{UsersWorkout.exercises[0].restBetweenSets}</h3>
-                            </div>
-
-                            <div className="user-exercise-right">
-                                <div className="exercise-img-container">
-                                    <div className="exercise-image">
-                                        <img
-                                            src="/exercise-images/benchpress.jpg"
-                                            alt="dfd"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div className="user-exercise-left">
-                            <h1>{UsersWorkout.exercises[1].exerciseName}</h1>
-                                <h3>reps: {UsersWorkout.exercises[1].reps}</h3>
-                                <h3>sets: {UsersWorkout.exercises[1].sets}</h3>
-                                <h3>Rest Between Sets:{UsersWorkout.exercises[1].restBetweenSets}</h3>
-                            </div>
-
-                            <div className="user-exercise-right">
-                                <div className="exercise-img-container">
-                                    <div className="exercise-image">
-                                        <img
-                                            src="/exercise-images/benchpress.jpg"
-                                            alt="dfd"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div className="user-exercise-left">
-                            <h1>{UsersWorkout.exercises[2].exerciseName}</h1>
-                                <h3>reps: {UsersWorkout.exercises[2].reps}</h3>
-                                <h3>sets: {UsersWorkout.exercises[2].sets}</h3>
-                                <h3>Rest Between Sets:{UsersWorkout.exercises[2].restBetweenSets}</h3>
-                            </div>
-
-                            <div className="user-exercise-right">
-                                <div className="exercise-img-container">
-                                    <div className="exercise-image">
-                                        <img
-                                            src="/exercise-images/benchpress.jpg"
-                                            alt="dfd"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div className="user-exercise-left">
-                            <h1>{UsersWorkout.exercises[3].exerciseName}</h1>
-                                <h3>reps: {UsersWorkout.exercises[3].reps}</h3>
-                                <h3>sets: {UsersWorkout.exercises[3].sets}</h3>
-                                <h3>Rest Between Sets:{UsersWorkout.exercises[3].restBetweenSets}</h3>
-                            </div>
-
-                            <div className="user-exercise-right">
-                                <div className="exercise-img-container">
-                                    <div className="exercise-image">
-                                        <img
-                                            src="/exercise-images/benchpress.jpg"
-                                            alt="dfd"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="user-workout-footer">
-                    <h1>
-                        Total workout time (including rest): {UsersWorkout.WorkoutEstDuration}
-                    </h1>
-                    <button>Complete workout</button>
-                </div>
-            </div>
+      <div className="User-exercise-container">
+        <div className="userworkout-container-heading">
+          <h1>{day}</h1>
+          <h2>Workout Name: {workoutName}</h2>
         </div>
-    );
+
+        <div className="userworkout-container-body2">
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            <ul>
+              {userData.map((exercise, index) => (
+                <li key={index}>
+                  <div className="user-exercise-left">
+                    <h1>{exercise.exercise_name}</h1>
+                    <h3>Reps: {exercise.Exercise_Reps}</h3>
+                    <h3>Sets: {exercise.Exercise_Sets}</h3>
+                    <h3>
+                      Rest Between Sets: {exercise.Rest_Between_Sets} minute(s)
+                    </h3>
+                  </div>
+
+                  <div className="user-exercise-right">
+                    <div className="exercise-img-container">
+                      <div className="exercise-image">
+                        <img
+                          src={`http://localhost/php-react/frontend/public/${exercise.exercise_image}`}
+                          alt={exercise.exercise_name}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default UsersWorkout;
