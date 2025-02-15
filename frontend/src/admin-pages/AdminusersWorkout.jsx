@@ -1,50 +1,28 @@
-import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { useParams, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
 
-const UsersWorkout = () => {
+const AdminusersWorkout = () => {
+  const { id } = useParams(); // Get workout ID from URL
+
   const location = useLocation();
-  const navigate = useNavigate();
-  const { day, workoutName } = location.state || {
-    day: "No day selected",
-    workoutName: "No workout selected",
-  };
-
+  const { day, workoutName } = location.state || {}; // Get workout details from state
+  const [workoutDetails, setWorkoutDetails] = useState(null);
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  let id = JSON.parse(window.localStorage.getItem("id"));
-
   useEffect(() => {
-    setLoading(true);
     axios
       .post(
-        `http://localhost/php-react/firstfitness/GetUserWorkout.php?id=${id}&day=${day}`
+        `http://localhost/php-react/firstfitness/AdminGetUsersWorkout.php?id=${id}`
       )
       .then((response) => {
-        setUserData(response.data);
-        setLoading(false);
+        setWorkoutDetails(response.data);
+        setUserData(response.data.exercises || []); // Set exercises to userData
+        console.log(response.data);
       })
-      .catch((error) => {
-        console.error(error);
-        setLoading(false);
-      });
-  }, [id, day]);
-
-  const handlecomplet = () => {
-    axios
-      .post("http://localhost/php-react/firstfitness/workoutcomplete.php", {
-        id: id,
-      })
-      .then(() => {
-        alert("Workout completed!");
-        navigate("/Userprofile"); // Navigate to the profile after completion
-      })
-      .catch((error) => {
-        console.error("Error completing workout:", error);
-      });
-  };
+      .catch((error) => console.error(error));
+  }, [id]);
 
   const totalWorkoutTime = userData.reduce(
     (total, exercise) => total + exercise.time,
@@ -52,23 +30,10 @@ const UsersWorkout = () => {
   );
 
   return (
-    <div className="User-profile">
-      <div className="nav">
-        <ul>
-          <li>
-            <a href="#">About us</a>
-          </li>
-          <li>
-            <a href="#">Log out</a>
-          </li>
-        </ul>
-      </div>
-
+    <div>
       <div className="User-exercise-container">
-        <div className="userworkout-container-heading">
-          <h1>{day}</h1>
-          <h2>Workout Name: {workoutName}</h2>
-        </div>
+        <h1>Workout for {day}</h1>
+        <h2>{workoutName}</h2>
 
         <div className="userworkout-container-body2">
           {loading ? (
@@ -107,12 +72,8 @@ const UsersWorkout = () => {
             Total workout time (including rest): {totalWorkoutTime} minutes
           </h1>
         </div>
-        <div className="user-workout-footer">
-          <button onClick={handlecomplet}>Complete Workout</button>
-        </div>
       </div>
     </div>
   );
 };
-
-export default UsersWorkout;
+export default AdminusersWorkout;

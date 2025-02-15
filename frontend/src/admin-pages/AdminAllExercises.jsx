@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+
+
 
 const AdminAllExercises = () => {
     const [showMuscleDropdown, setShowMuscleDropdown] = useState(false);
@@ -8,7 +11,22 @@ const AdminAllExercises = () => {
         useState("Select Equipment");
 
     const equipmentOptions = ["Machines", "Free Weights", "Body Weight"];
-    const muscleOptions = ["Chest", "Back", "Legs", "Shoulders", "Arms"];
+    const muscleOptions = [
+        "Chest",
+        "Back",
+        "Legs",
+        "Shoulders",
+        "Biceps",
+        "Triceps",
+      ];
+
+    const { id } = useParams(); // Get workout ID from URL
+    console.log(id);
+
+
+
+    
+
 
     const Exercise = {
         exercises: [

@@ -91,3 +91,19 @@
     transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
     cursor: pointer;
 }
+
+
+.reset-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .reset-button:hover {
+    background-color: #cc0000;
+  }
+  

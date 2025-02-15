@@ -1,119 +1,82 @@
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 
 const AdminPreMadeRoutines = () => {
-    const PreMadeRoutines = {
-        exercise: {
-            id: "placeholder",
-            name: "placeholder",
-            level: "placeholder",
-        },
-    };
+  const PreMadeRoutines = {
+    exercise: {
+      id: "placeholder",
+      name: "placeholder",
+      level: "placeholder",
+    },
+  };
 
-    return (
-        <div className="Admin-add-Exercise">
-            <div className="nav">
-                <ul>
-                    <li>
-                        <a href="#">About us</a>
-                    </li>
-                    <li>
-                        <a href="#">Log out</a>
-                    </li>
-                </ul>
-            </div>
-            <div className="admin-exercise-container-all">
-                <div className="admin-pre-made-heading">
-                    <h1>Pre-Built Routines</h1>
-                </div>
+  const [userData, setUserData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-                <div className="admin-pre-made-routines-add-new-button">
-                    <button>Add New Routine</button>
-                </div>
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .post(
+        `http://localhost/php-react/firstfitness/adminGetpremadeworkouts.php`
+      )
+      .then((response) => {
+        setUserData(response.data);
+        console.log(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
+  }, []);
 
-                <div className="admin-pre-made-routines-list-container">
-                    <ul>
-                        <li>
-                            <div className="admin-pre-made-routines-list-left">
-                                <h3>{PreMadeRoutines.exercise.name}</h3>
-                                <p>Level: {PreMadeRoutines.exercise.level}</p>
-                            </div>
-                            <div className="admin-pre-made-routines-list-right">
-                                <div className="admin-button-divider">
-                                    <button>Edit</button>
-                                    <button>Delete</button>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div className="admin-pre-made-routines-list-left">
-                                <h3>{PreMadeRoutines.exercise.name}</h3>
-                                <p>Level: {PreMadeRoutines.exercise.level}</p>
-                            </div>
-                            <div className="admin-pre-made-routines-list-right">
-                                <div className="admin-button-divider">
-                                    <button>Edit</button>
-                                    <button>Delete</button>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div className="admin-pre-made-routines-list-left">
-                                <h3>{PreMadeRoutines.exercise.name}</h3>
-                                <p>Level: {PreMadeRoutines.exercise.level}</p>
-                            </div>
-                            <div className="admin-pre-made-routines-list-right">
-                                <div className="admin-button-divider">
-                                    <button>Edit</button>
-                                    <button>Delete</button>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div className="admin-pre-made-routines-list-left">
-                                <h3>{PreMadeRoutines.exercise.name}</h3>
-                                <p>Level: {PreMadeRoutines.exercise.level}</p>
-                            </div>
-                            <div className="admin-pre-made-routines-list-right">
-                                <div className="admin-button-divider">
-                                    <button>Edit</button>
-                                    <button>Delete</button>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div className="admin-pre-made-routines-list-left">
-                                <h3>{PreMadeRoutines.exercise.name}</h3>
-                                <p>Level: {PreMadeRoutines.exercise.level}</p>
-                            </div>
-                            <div className="admin-pre-made-routines-list-right">
-                                <div className="admin-button-divider">
-                                    <button>Edit</button>
-                                    <button>Delete</button>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div className="admin-pre-made-routines-list-left">
-                                <h3>{PreMadeRoutines.exercise.name}</h3>
-                                <p>Level: {PreMadeRoutines.exercise.level}</p>
-                            </div>
-                            <div className="admin-pre-made-routines-list-right">
-                                <div className="admin-button-divider">
-                                    <button>Edit</button>
-                                    <button>Delete</button>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+  return (
+    <div className="Admin-add-Exercise">
+      <div className="nav">
+        <ul>
+          <li>
+            <a href="#">About us</a>
+          </li>
+          <li>
+            <a href="#">Log out</a>
+          </li>
+        </ul>
+      </div>
+      <div className="admin-exercise-container-all">
+        <div className="admin-pre-made-heading">
+          <h1>Pre-Built Workouts</h1>
         </div>
-    );
+
+        <div className="admin-pre-made-routines-add-new-button">
+          <Link to="/Adminbuildworkout">
+            <button>Add New Workout</button>
+          </Link>
+        </div>
+
+        <div className="admin-pre-made-routines-list-container">
+          <ul>
+            {userData.map((data) => (
+              <li key={data.id}>
+                <div className="admin-pre-made-routines-list-left">
+                  <h3>{data.name}</h3>
+                  <p>Level: {data.level}</p>
+                </div>
+                <div className="admin-pre-made-routines-list-right">
+                  <div className="admin-button-divider">
+                    <Link to={`/AdminAllExercises/${data.id}`}>
+                      <button>Edit</button>
+                    </Link>
+                    <button>Delete</button>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AdminPreMadeRoutines;

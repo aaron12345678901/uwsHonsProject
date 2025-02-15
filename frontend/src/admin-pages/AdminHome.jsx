@@ -1,38 +1,88 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminHome = () => {
-    return (
-        <div className="Admin-Home">
-            <div className="nav">
-                <ul>
-                    <li>
-                        <a href="#">About us</a>
-                    </li>
-                    <li>
-                        <a href="#">Log out</a>
-                    </li>
-                </ul>
-            </div>
+  const [userData, setUserData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-            <div className="User-exercise-container">
-                <div className="admin-home-heading">
-                    <h1>Admin: (placeholder)</h1>
-                </div>
+  let id = JSON.parse(window.localStorage.getItem("id"));
 
-                <div className="admin-home-links">
-                    <div className="admin-home-links-left">
-                        <a className="admin-home-left-img" href=""></a>
-                        <h2>Users</h2>
-                    </div>
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .post(
+        `http://localhost/php-react/firstfitness/GetUserDetails.php?id=${id}`
+      )
+      .then((response) => {
+        setUserData(response.data);
+        console.log(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
+  }, [id]);
 
-                    <div className="admin-home-links-right">
-                        <a className="admin-home-right-img" href=""></a>
-                        <h2>Workouts</h2>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div className="Admin-Home">
+      <div className="nav">
+        <ul>
+          <li>
+            <a href="#">About us</a>
+          </li>
+          <li>
+            <a href="#">Log out</a>
+          </li>
+        </ul>
+      </div>
+
+      <div className="User-exercise-container">
+        <div className="admin-home-heading">
+          <h1>Admin Name: {userData[0]?.name}</h1>
         </div>
-    );
+
+        <div className="admin-home-links">
+          <div className="admin-home-links-left">
+            <Link to="/AdminAllUsers">
+              <a className="admin-home-left-img" href=""></a>
+            </Link>
+
+            <h2>Users</h2>
+          </div>
+
+          <div className="admin-home-links-right">
+            <Link to="/AdminPreMadeRoutines">
+              <a className="admin-home-right-img" href=""></a>
+            </Link>
+
+            <h2>Workouts</h2>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        {/* <div className="admin-home-links-right">
+
+          <Link to="/AdminPreMadeRoutines" >
+            <a className="admin-home-right-img" href=""></a>
+            </Link>
+
+
+            <h2>Workouts</h2>
+          </div> */}
+      </div>
+    </div>
+  );
 };
 
 export default AdminHome;

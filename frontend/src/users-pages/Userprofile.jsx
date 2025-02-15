@@ -36,7 +36,7 @@ const Userprofile = () => {
 
   const getWorkoutForDay = (day) => {
     const workoutForDay = userData.find(
-      (entry) => entry.day_of_week.toLowerCase() === day.toLowerCase()
+      (entry) => entry?.day_of_week?.toLowerCase() === day.toLowerCase()
     );
     return workoutForDay ? workoutForDay.workout_name : "Rest Day";
   };
@@ -61,8 +61,10 @@ const Userprofile = () => {
               <h2>Name:</h2> <h2>{userData[0]?.name}</h2>
             </div>
             <div className="profile-top-section-left-order">
-              <h2>Weight:</h2> <h2>St.</h2> <h2>{userData[0]?.weightstone}</h2>{" "}
-              <h2>Lbs.</h2> <h2>{userData[0]?.weightpounds}</h2>
+              <h2>
+                Weight: {userData[0]?.weightstone}st {userData[0]?.weightpounds}
+                lbs
+              </h2>
             </div>
             <div className="profile-top-section-left-order">
               <h2>Exp level:</h2> <h2>{getExperienceLevel()}</h2>
@@ -78,11 +80,13 @@ const Userprofile = () => {
           </div>
         </div>
 
-        <div className="profile-new-routine-position">
-          <a className="profile-new-routine" href="">
-            <p>New Routine</p>
-          </a>
-        </div>
+        <Link to="/UserNewRoutine" state={{}}>
+          <div className="profile-new-routine-position">
+            <a className="profile-new-routine" href="">
+              <p>New Routine</p>
+            </a>
+          </div>
+        </Link>
 
         <div className="users-workout">
           <ul>
@@ -104,19 +108,26 @@ const Userprofile = () => {
                     <p>{getWorkoutForDay(day)}</p>
                   </div>
                   <div className="users-workout-row-button">
-                  <Link
-  to="/UserWorkout"
-  state={{
-    day: day,
-    workoutName: getWorkoutForDay(day),
-  }}
->
-  <button>Start</button>
-</Link>
-
+                    <Link
+                      to="/UserWorkout"
+                      state={{
+                        day: day,
+                        workoutName: getWorkoutForDay(day),
+                      }}
+                    >
+                      <button>Start</button>
+                    </Link>
                   </div>
                   <div className="users-workout-row-button">
-                    <button>Edit</button>
+                    <Link
+                      to="/UserEditworkout"
+                      state={{
+                        day: day,
+                        workoutName: getWorkoutForDay(day),
+                      }}
+                    >
+                      <button>Edit</button>
+                    </Link>
                   </div>
                 </div>
               </li>

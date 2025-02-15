@@ -20,17 +20,27 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const url = `http://localhost/php-react/firstfitness/login.php?email=${formData.email}&password=${formData.password}`;
-
+  
     try {
       const response = await axios.get(url);
+  
       if (response.data.Status === "200") {
-        window.localStorage.setItem("userName", response.data.name);
-        window.localStorage.setItem("email", response.data.email);
-        window.localStorage.setItem("id", response.data.id);
-
-        navigate("/Userprofile");
+        const { name, email, id, is_admin } = response.data;
+  
+        // Store user details in local storage
+        window.localStorage.setItem("userName", name);
+        window.localStorage.setItem("email", email);
+        window.localStorage.setItem("id", id);
+        
+  
+        // Navigate based on admin status
+        if (is_admin === "1") {
+          navigate("/AdminHome");
+        } else if (is_admin === "0") {
+          navigate("/Userprofile");
+        }
       } else {
         alert("Invalid email or password");
       }
@@ -39,7 +49,6 @@ const Login = () => {
       alert("An error occurred. Please try again.");
     }
   };
-
 
 
   return (
