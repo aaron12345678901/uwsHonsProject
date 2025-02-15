@@ -64,7 +64,7 @@ const AdminPreMadeRoutines = () => {
                 </div>
                 <div className="admin-pre-made-routines-list-right">
                   <div className="admin-button-divider">
-                    <Link to={`/AdminAllExercises/${data.id}`}>
+                    <Link to={`/AdminEditworkout/${data.id}`}>
                       <button>Edit</button>
                     </Link>
                     <button>Delete</button>

@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+const AdminAddExerciseToWorkout = () => {
 
-const AdminAllExercises = () => {
+
+
+
+
+
+    
   const [showMuscleDropdown, setShowMuscleDropdown] = useState(false);
   const [showEquipmentDropdown, setShowEquipmentDropdown] = useState(false);
   const [selectedMuscle, setSelectedMuscle] = useState("Select Muscle");
@@ -9,8 +17,26 @@ const AdminAllExercises = () => {
     useState("Select Equipment");
   const [searchTerm, setSearchTerm] = useState("");
   const [exercises, setExercises] = useState([]);
+  const [userWorkout, setUserWorkout] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const location = useLocation();
+  const { day, workoutName, workoutId } = location.state || {};
+  const navigate = useNavigate();
+
+
+
+
+
+
+
+
+
+
+
+  useEffect(() => {
+    console.log("Workout ID:", workoutId);
+  }, [workoutId]);
 
   const userId = JSON.parse(window.localStorage.getItem("id"));
   const equipmentOptions = ["Machines", "Free Weights", "Body Weight"];
@@ -25,7 +51,7 @@ const AdminAllExercises = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost/php-react/firstfitness/adminGetallexercises.php")
+      .get("http://localhost/php-react/firstfitness/userGetExercises.php")
       .then((response) => {
         setExercises(response.data);
         console.log(response.data);
@@ -38,35 +64,6 @@ const AdminAllExercises = () => {
       });
   }, []);
 
-  const handleEdit = (exerciseId) => {
-    // Redirect to the edit page with the exercise ID
-    window.location.href = `/AdminEditExercise/${exerciseId}`;
-  };
-
-  const handleaddExercise = () => {
-    // Redirect to the edit page with the exercise ID
-    window.location.href = `/AdminAddExercise`;
-  };
-
-
-  const handleDelete = (exerciseId) => {
-    if (window.confirm("Are you sure you want to delete this exercise?")) {
-      axios
-        .post("http://localhost/php-react/firstfitness/admindeletefullExercise.php", {
-          id: exerciseId,
-        })
-        .then((response) => {
-          alert("Exercise deleted successfully!");
-          setExercises(exercises.filter((exercise) => exercise.id !== exerciseId));
-        })
-        .catch((error) => {
-          console.error("Error deleting exercise:", error);
-          alert("Failed to delete exercise.");
-        });
-    }
-  }
-
- 
   const handleMuscleSelect = (muscle) => {
     setSelectedMuscle(muscle);
     setShowMuscleDropdown(false);
@@ -81,6 +78,24 @@ const AdminAllExercises = () => {
     setSelectedMuscle("Select Muscle");
     setSelectedEquipment("Select Equipment");
     setSearchTerm("");
+  };
+
+  const handleAddExercise = (exercise) => {
+    axios
+      .post("http://localhost/php-react/firstfitness/useraddUserWorkout.php", {
+        userId: userId,
+        exerciseId: exercise.id,
+        workoutId: workoutId,
+      })
+      .then(() => {
+        setUserWorkout([...userWorkout, exercise]);
+        alert(`${exercise.name} added to your workout!`);
+        navigate(-1);
+      })
+      .catch((err) => {
+        console.error("Error adding exercise:", err);
+        alert("Failed to add exercise.");
+      });
   };
 
   const equipmentMap = {
@@ -117,7 +132,7 @@ const AdminAllExercises = () => {
       </div>
 
       <div className="User-build-exercise-container">
-        <div className="admin-all-exercise-search">
+        <div className="user-build-search">
           <div className="user-build-search-divider">
             <div
               className="muscle-filter"
@@ -135,7 +150,6 @@ const AdminAllExercises = () => {
               )}
             </div>
 
-            {/* Equipment Filter */}
             <div
               className="equipment-filter"
               onClick={() => setShowEquipmentDropdown(!showEquipmentDropdown)}
@@ -156,25 +170,16 @@ const AdminAllExercises = () => {
             </div>
           </div>
 
-          <div className="admin-search-bar">
+          <div className="user-search-bar">
             <input
               type="text"
               placeholder="Search..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-          </div>
-
-          
-
-          <div className="admin-all-exercises-addExercise-button">
-          <button onClick={handleResetFilters} className="reset-button">
+            <button onClick={handleResetFilters} className="reset-button">
               Reset Filters
             </button>
-
-
-            <button onClick={handleaddExercise}>Add Exercise</button>
-
           </div>
         </div>
 
@@ -205,18 +210,10 @@ const AdminAllExercises = () => {
                   </div>
                 </div>
 
-                <div className="admin-all-exercises-button-divider">
-                  <div className="admin-all-edit-button">
-                    <button
-                      value={exercise.id}
-                      onClick={() => handleEdit(exercise.id)}
-                    >
-                      Edit
-                    </button>
-                  </div>
-                  <div className="admin-all-delete-button">
-                  <button onClick={() => handleDelete(exercise.id)}>Delete</button>
-                  </div>
+                <div className="use-build-add-button">
+                  <button onClick={() => handleAddExercise(exercise)}>
+                    Add
+                  </button>
                 </div>
               </li>
             ))}
@@ -227,4 +224,4 @@ const AdminAllExercises = () => {
   );
 };
 
-export default AdminAllExercises;
+export default AdminAddExerciseToWorkout;

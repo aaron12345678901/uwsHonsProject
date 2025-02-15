@@ -28,10 +28,17 @@ import AdminAllExercises from "./admin-pages/AdminAllExercises";
 import AdminEditExercise from "./admin-pages/AdminEditExercise";
 import AdminAddExercise from "./admin-pages/AdminAddExercise";
 import AdminPreMadeRoutines from "./admin-pages/AdminPreMadeRoutines";
-import AdminaddNewRoutine from "./admin-pages/AdminaddNewRoutine";
+// import AdminaddNewRoutine from "./admin-pages/AdminaddNewRoutine";
 import AdminEditRoutineWorkout from "./admin-pages/AdminEditRoutineWorkout";
 import AdminusersWorkout from "./admin-pages/AdminusersWorkout";
 import Adminbuildworkout from "./admin-pages/Adminbuildworkout";
+import AdminEditworkout from "./admin-pages/AdminEditworkout";
+import AdminAddExerciseToWorkout from "./admin-pages/AdminAddExerciseToWorkout";
+
+
+
+
+
 
 function App() {
   return (
@@ -50,26 +57,35 @@ function App() {
           <Route path="/UserEditworkout" element={<UserEditworkout />} />
           <Route path="/UserBuildWorkout" element={<UserBuildWorkout />} />
           <Route path="/UserNewRoutine" element={<UserNewRoutine />} />
-           <Route path="/UserPreBuiltRoutine" element={<UserPreBuiltRoutine />} />
+          <Route path="/UserPreBuiltRoutine"element={<UserPreBuiltRoutine />}/>
           <Route path="/UserCustomWorkout" element={<UserCustomWorkout />} />
-          
-         {/* {admin pages } */}
+
+          {/* {admin pages } */}
           <Route path="/AdminHome" element={<AdminHome />} />
-
-
-          <Route path="/AdminAddExercise" element={<AdminAddExercise />} />
+         
           <Route path="/AdminAllUsers" element={<AdminAllUsers />} />
           <Route path="/AdminViewUser/:id" element={<AdminViewUser />} />
-          <Route path="/AdminusersWorkout/:id" element={<AdminusersWorkout />} />
-          <Route path="/AdminPreMadeRoutines" element={<AdminPreMadeRoutines />} />
+          <Route path="/AdminusersWorkout/:id"element={<AdminusersWorkout />}/>
+          <Route path="/AdminPreMadeRoutines"element={<AdminPreMadeRoutines />}/>
           <Route path="/Adminbuildworkout" element={<Adminbuildworkout />} />
-
-
-          <Route path="/AdminAllExercises/:id" element={<AdminAllExercises />} />
+          <Route path="/AdminEditworkout/:id" element={<AdminEditworkout />} />
+          <Route path="/AdminAddExerciseToWorkout"element={<AdminAddExerciseToWorkout />}/>
+          
+          
         
-        {/* <Route path="/AdminaddNewRoutine" element={<AdminaddNewRoutine />} /> */}
-            
-              
+
+
+
+
+
+        <Route path="/AdminAllExercises"element={<AdminAllExercises />}/>
+        <Route path="/AdminAddExercise" element={<AdminAddExercise />} />
+         <Route path="/AdminEditExercise/:id" element={<AdminEditExercise />}/>
+
+
+
+
+          {/* <Route path="/AdminaddNewRoutine" element={<AdminaddNewRoutine />} /> */}
         </Routes>
         <Footer />
       </div>

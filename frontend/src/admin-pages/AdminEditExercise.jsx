@@ -1,196 +1,208 @@
-import { useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const AdminEditExercise = () => {
-    const Exercise = {
-        exercise: {
-            id: "placeholder",
-            exerciseName: "placeholder",
-            muscleGroup: "placeholder",
-            equipment: "placeholder",
-            reps: "placeholder",
-            sets: "placeholder",
-            weight: "placeholder",
-            img: "placeholder",
-            resttime: "placeholder",
-            totaltime: "placeholder",
-        },
-    };
+  const { id } = useParams(); // Get exercise ID from URL
+  const [exerciseDetails, setExerciseDetails] = useState(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    Exercise_Reps: "",
+    Exercise_Sets: "",
+    Rest_Between_Sets: "",
+    time: "",
+    muscle_group: "",
+    equipment_needed: "",
+    img: "",
+  });
 
-    return (
-        <div className="Admin-Home">
-            <div className="nav">
-                <ul>
-                    <li>
-                        <a href="#">About us</a>
-                    </li>
-                    <li>
-                        <a href="#">Log out</a>
-                    </li>
-                </ul>
+  useEffect(() => {
+    axios
+      .post(
+        `http://localhost/php-react/firstfitness/AdminGetExercisedata.php?id=${id}`
+      )
+      .then((response) => {
+        if (response.data && response.data.length > 0) {
+          setExerciseDetails(response.data[0]);
+          console.log(response.data);
+          setFormData({
+            name: response.data[0].name,
+            Exercise_Reps: response.data[0].Exercise_Reps,
+            Exercise_Sets: response.data[0].Exercise_Sets,
+            Rest_Between_Sets: response.data[0].Rest_Between_Sets,
+            time: response.data[0].time,
+            muscle_group: response.data[0].muscle_group,
+            equipment_needed: response.data[0].equipment_needed,
+            img: response.data[0].img,
+          });
+        }
+      })
+      .catch((error) => console.error(error));
+  }, [id]);
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Handle form submission
+  const handleEdit = () => {
+    axios
+      .post(
+        "http://localhost/php-react/firstfitness/adminhandleexerciseedit.php",
+        {
+          id,
+          ...formData,
+        }
+      )
+      .then((response) => {
+        console.log("Edit success:", response.data);
+        alert("Exercise updated successfully!");
+      })
+      .catch((error) => {
+        console.error("Edit failed:", error);
+        alert("Failed to update exercise.");
+      });
+  };
+
+  return (
+    <div className="Admin-Home">
+      <div className="nav">
+        <ul>
+          <li>
+            <a href="#">About us</a>
+          </li>
+          <li>
+            <a href="#">Log out</a>
+          </li>
+        </ul>
+      </div>
+
+      <div className="admin-exercise-container-all">
+        <div className="admin-edit-exercise-container">
+          <div className="admin-edit-exercise-left">
+            <ul>
+              <li>
+                <label htmlFor="name">Exercise Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </li>
+              <li>
+                <label htmlFor="reps">Exercise Reps</label>
+                <input
+                  type="number"
+                  id="reps"
+                  name="Exercise_Reps"
+                  value={formData.Exercise_Reps}
+                  onChange={handleChange}
+                />
+              </li>
+              <li>
+                <label htmlFor="sets">Exercise Sets</label>
+                <input
+                  type="number"
+                  id="sets"
+                  name="Exercise_Sets"
+                  value={formData.Exercise_Sets}
+                  onChange={handleChange}
+                />
+              </li>
+              <li>
+                <label htmlFor="rest">Rest Between Sets</label>
+                <input
+                  type="number"
+                  id="rest"
+                  name="Rest_Between_Sets"
+                  value={formData.Rest_Between_Sets}
+                  onChange={handleChange}
+                />
+              </li>
+              <li>
+                <label htmlFor="TotalTimeToComplete">
+                  Total Time To Complete
+                </label>
+                <input
+                  type="number"
+                  id="TotalTimeToComplete"
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                />
+              </li>
+            </ul>
+          </div>
+
+          <div className="admin-edit-exercise-right">
+            <div className="admin-edit-exercise-img-container">
+              <div className="admin-edit-exercise-image">
+                <img
+                  src={`http://localhost/php-react/frontend/public/${formData.img}`}
+                  alt="Exercise"
+                />
+              </div>
+              <p>Click to upload new image</p>
             </div>
 
-            <div className="admin-exercise-container-all">
-                <div className="admin-edit-exercise-container">
-                    <div className="admin-edit-exercise-left">
-                        <ul>
-                            <li>
-                                <label htmlFor="name">Exercise Name</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    placeholder={Exercise.exercise.exerciseName}
-                                />
-                            </li>
-                            <li>
-                                <label htmlFor="reps">Exercise Reps</label>
-                                <input
-                                    type="text"
-                                    id="reps"
-                                    placeholder={Exercise.exercise.reps}
-                                />
-                            </li>
-                            <li>
-                                <label htmlFor="sets">Exercise Sets</label>
-                                <input
-                                    type="text"
-                                    id="sets"
-                                    placeholder={Exercise.exercise.sets}
-                                />
-                            </li>
-                            <li>
-                                <label htmlFor="rest">Rest Between Sets</label>
-                                <input
-                                    type="text"
-                                    id="rest"
-                                    placeholder={Exercise.exercise.resttime}
-                                />
-                            </li>
-                            <li>
-                                <label htmlFor="TotalTimeToComplete">
-                                    Total Time To Complete Exercise
-                                </label>
-                                <input
-                                    type="text"
-                                    id="TotalTimeToComplete"
-                                    placeholder={Exercise.exercise.totaltime}
-                                />
-                            </li>
-                        </ul>
+            <div className="admin-edit-right-radios">
+              <div className="muscle-radio">
+                <p>Please select muscle group:</p>
+                {["Chest", "Back", "Legs", "Shoulders", "Arms"].map(
+                  (muscle) => (
+                    <div key={muscle} className="radioItem">
+                      <input
+                        type="radio"
+                        id={muscle}
+                        name="muscle_group"
+                        value={muscle}
+                        checked={formData.muscle_group === muscle}
+                        onChange={handleChange}
+                      />
+                      <label htmlFor={muscle}>{muscle}</label>
                     </div>
+                  )
+                )}
+              </div>
 
-                    <div className="admin-edit-exercise-right">
-                        <div className="admin-edit-exercise-img-container">
-                            <div className="admin-edit-exercise-image">
-                                <img
-                                    src="/exercise-images/benchpress.jpg"
-                                    alt={Exercise.exercise.img}
-                                />
-                            </div>
-                            <p>click to upload new image</p>
-                        </div>
-
-                        <div className="admin-edit-right-radios">
-                            <div className="muscle-radio">
-                                <p>Please select muscle group:</p>
-                                <div className="radioItem">
-                                    <input
-                                        type="radio"
-                                        id="Chest"
-                                        name="muscle_group"
-                                        value="Chest"
-                                        className="radioButton"
-                                    />
-                                    <label htmlFor="Chest">Chest</label>
-                                </div>
-                                <div className="radioItem">
-                                    <input
-                                        type="radio"
-                                        id="Back"
-                                        name="muscle_group"
-                                        value="Back"
-                                        className="radioButton"
-                                    />
-                                    <label htmlFor="Back">Back</label>
-                                </div>
-                                <div className="radioItem">
-                                    <input
-                                        type="radio"
-                                        id="Legs"
-                                        name="muscle_group"
-                                        value="Legs"
-                                        className="radioButton"
-                                    />
-                                    <label htmlFor="Legs">Legs</label>
-                                </div>
-                                <div className="radioItem">
-                                    <input
-                                        type="radio"
-                                        id="Shoulders"
-                                        name="muscle_group"
-                                        value="Shoulders"
-                                        className="radioButton"
-                                    />
-                                    <label htmlFor="Shoulders">Shoulders</label>
-                                </div>
-                                <div className="radioItem">
-                                    <input
-                                        type="radio"
-                                        id="Arms"
-                                        name="muscle_group"
-                                        value="Arms"
-                                        className="radioButton"
-                                    />
-                                    <label htmlFor="Arms">Arms</label>
-                                </div>
-                            </div>
-
-                            <div className="equipment-radio">
-                                <p>Please select equipment type:</p>
-                                <div className="radioItem">
-                                    <input
-                                        type="radio"
-                                        id="Machines"
-                                        name="equipment_type"
-                                        value="Machines"
-                                        className="radioButton"
-                                    />
-                                    <label htmlFor="Machines">Machines</label>
-                                </div>
-                                <div className="radioItem">
-                                    <input
-                                        type="radio"
-                                        id="Free Weights"
-                                        name="equipment_type"
-                                        value="Free Weights"
-                                        className="radioButton"
-                                    />
-                                    <label htmlFor="Free Weights">
-                                        Free Weights
-                                    </label>
-                                </div>
-                                <div className="radioItem">
-                                    <input
-                                        type="radio"
-                                        id="Body Weight"
-                                        name="equipment_type"
-                                        value="Body Weight"
-                                        className="radioButton"
-                                    />
-                                    <label htmlFor="Body Weight">
-                                        Body Weight
-                                    </label>
-                                </div>{" "}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="admin-edit-exercise-button">
-                    <button>Confirm Edit</button>
-                </div>
+              <div className="equipment-radio">
+                <p>Please select equipment type:</p>
+                {[
+                  { label: "Machines", value: 1 },
+                  { label: "Free Weights", value: 2 },
+                  { label: "Body Weight", value: 3 },
+                ].map((equip) => (
+                  <div key={equip.value} className="radioItem">
+                    <input
+                      type="radio"
+                      id={equip.label}
+                      name="equipment_needed"
+                      value={equip.value}
+                      checked={
+                        parseInt(formData.equipment_needed) === equip.value
+                      }
+                      onChange={handleChange}
+                    />
+                    <label htmlFor={equip.label}>{equip.label}</label>
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
         </div>
-    );
+
+        <div className="admin-edit-exercise-button">
+          <button onClick={handleEdit}>Confirm Edit</button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AdminEditExercise;

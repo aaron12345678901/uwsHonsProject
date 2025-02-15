@@ -62,6 +62,19 @@ const AdminHome = () => {
         </div>
 
 
+        <div className="admin-home-links">
+          <div className="admin-home-links-left">
+            <Link to="/AdminAllExercises">
+              <a className="admin-home-bottom-img" href=""></a>
+            </Link>
+
+            <h2>Exercises</h2>
+          </div>
+
+         
+        </div>
+
+
 
 
 
