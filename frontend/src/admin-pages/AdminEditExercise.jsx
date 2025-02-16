@@ -1,10 +1,9 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const AdminEditExercise = () => {
-  const { id } = useParams(); // Get exercise ID from URL
-  const [exerciseDetails, setExerciseDetails] = useState(null);
+  const { id } = useParams();
   const [formData, setFormData] = useState({
     name: "",
     Exercise_Reps: "",
@@ -23,49 +22,61 @@ const AdminEditExercise = () => {
       )
       .then((response) => {
         if (response.data && response.data.length > 0) {
-          setExerciseDetails(response.data[0]);
-          console.log(response.data);
+          const data = response.data[0];
           setFormData({
-            name: response.data[0].name,
-            Exercise_Reps: response.data[0].Exercise_Reps,
-            Exercise_Sets: response.data[0].Exercise_Sets,
-            Rest_Between_Sets: response.data[0].Rest_Between_Sets,
-            time: response.data[0].time,
-            muscle_group: response.data[0].muscle_group,
-            equipment_needed: response.data[0].equipment_needed,
-            img: response.data[0].img,
+            name: data.name,
+            Exercise_Reps: data.Exercise_Reps,
+            Exercise_Sets: data.Exercise_Sets,
+            Rest_Between_Sets: data.Rest_Between_Sets,
+            time: data.time,
+            muscle_group: data.muscle_group,
+            equipment_needed: data.equipment_needed,
+            img: data.img, // This could be a URL string
           });
         }
       })
       .catch((error) => console.error(error));
   }, [id]);
 
-  // Handle input changes
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
-  const handleEdit = () => {
-    axios
-      .post(
+  const handleEdit = async () => {
+    const formDataToSend = new FormData();
+    formDataToSend.append("jsonData", JSON.stringify({ id, ...formData }));
+
+    if (formData.img instanceof File) {
+      formDataToSend.append("img", formData.img);
+    }
+
+    try {
+      const response = await axios.post(
         "http://localhost/php-react/firstfitness/adminhandleexerciseedit.php",
+        formDataToSend,
         {
-          id,
-          ...formData,
+          headers: { "Content-Type": "multipart/form-data" },
         }
-      )
-      .then((response) => {
-        console.log("Edit success:", response.data);
-        alert("Exercise updated successfully!");
-      })
-      .catch((error) => {
-        console.error("Edit failed:", error);
-        alert("Failed to update exercise.");
-      });
+      );
+
+      alert(response.data.message || "Exercise updated successfully!");
+    } catch (error) {
+      console.error(error);
+      alert("Failed to update exercise.");
+    }
+  };
+
+  const handleImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setFormData((prevData) => ({
+        ...prevData,
+        img: e.target.files[0], // Store the File object
+      }));
+    }
+  };
+
+  const handleImageClick = () => {
+    document.getElementById("imgUploadInput").click();
   };
 
   return (
@@ -141,14 +152,30 @@ const AdminEditExercise = () => {
           </div>
 
           <div className="admin-edit-exercise-right">
-            <div className="admin-edit-exercise-img-container">
+            <div
+              className="admin-edit-exercise-img-container"
+              onClick={handleImageClick}
+            >
               <div className="admin-edit-exercise-image">
-                <img
-                  src={`http://localhost/php-react/frontend/public/${formData.img}`}
-                  alt="Exercise"
-                />
+                {formData.img && formData.img instanceof File ? (
+                  <img
+                    src={URL.createObjectURL(formData.img)}
+                    alt={formData.name || "Exercise Image"}
+                  />
+                ) : (
+                  <img
+                    src={`http://localhost/php-react/frontend/public/${formData.img}`}
+                    alt={formData.name || "Exercise Image"}
+                  />
+                )}
               </div>
               <p>Click to upload new image</p>
+              <input
+                type="file"
+                id="imgUploadInput"
+                style={{ display: "none" }}
+                onChange={handleImageChange}
+              />
             </div>
 
             <div className="admin-edit-right-radios">
