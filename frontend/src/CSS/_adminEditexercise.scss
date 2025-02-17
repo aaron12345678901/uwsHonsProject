@@ -1,189 +1,189 @@
 .admin-exercise-container-all {
-    background-color: #d1e0e0;
-    width: 60%;
-    border: 1px solid black;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
+  background-color: #d1e0e0;
+  width: 90%;
+  border: 1px solid black;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 .admin-edit-exercise-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .admin-edit-exercise-left {
-    height: 100%;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .admin-edit-exercise-left ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .admin-edit-exercise-left li {
-    width: 60%;
-    height: 40px;
-    margin: 30px;
+  width: 60%;
+  height: 40px;
+  margin: 30px;
 }
 
 .admin-edit-exercise-left li input {
-    width: 100%;
-    height: 100%;
-    border: 1px solid black;
-    font-size: large;
-    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
-    border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  font-size: large;
+  transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+  border-radius: 8px;
 }
 
 .admin-edit-exercise-left li input:hover {
-    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
-    transform: translateY(-3px);
-    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+  transform: translateY(-3px);
+  transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
 }
 
 .admin-edit-exercise-right {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .admin-edit-exercise-img-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 40%;
-    margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  margin-top: 40px;
 }
 
 .admin-edit-exercise-image {
-    width: 80%;
-    height: 80%;
-    background-color: lightgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 8px;
-    overflow: hidden;
-    opacity: 0.8;
+  width: 80%;
+  height: 80%;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0.8;
 }
 
 .admin-edit-exercise-image:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .exercise-image img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .admin-edit-right-radios {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    border-radius: 8px;
-    padding: 10px;
-    margin-top: 30px;
-    background-color: #ecf7f7;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 30px;
+  background-color: #ecf7f7;
 }
 
 .muscle-radio,
 .equipment-radio {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .radioItem {
-    display: flex;
-    align-items: center;
-    column-gap: 8px; /* Space between radio button and label */
-    width: fit-content;
-    cursor: pointer;
-    width: 70%;
+  display: flex;
+  align-items: center;
+  column-gap: 8px; /* Space between radio button and label */
+  width: fit-content;
+  cursor: pointer;
+  width: 70%;
 }
 
 .radioItem:hover {
-    background-color: #a8dfdf;
-    transition: background-color 0.3s ease;
-    border-radius: 6px;
+  background-color: #a8dfdf;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
 }
 
 .radioButton {
-    appearance: none;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    border-radius: 9999px;
-    background-color: #dddddd;
-    cursor: pointer;
-    border: 1px solid black;
+  appearance: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background-color: #dddddd;
+  cursor: pointer;
+  border: 1px solid black;
 }
 
 .radioButton:checked::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    width: 12px;
-    height: 12px;
-    margin: auto;
-    border-radius: 9999px;
-    background-color: #06b6d4;
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 12px;
+  height: 12px;
+  margin: auto;
+  border-radius: 9999px;
+  background-color: #06b6d4;
 }
 
 .radioItem:not(:last-of-type) {
-    margin-bottom: 16px; /* Space between radio items */
+  margin-bottom: 16px; /* Space between radio items */
 }
 
 .admin-edit-exercise-button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    margin-bottom: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 80px;
 }
 
 .admin-edit-exercise-button button {
-    font-size: 15px;
-    font-family: Arial;
-    width: 40%;
-    height: 50px;
-    border-width: 1px;
-    color: #ffffff;
-    border-color: #057fd0;
-    font-weight: bold;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    box-shadow: 0px 1px 0px 0px #f0f7fa;
-    text-shadow: 0px -1px 0px #5b6178;
-    background: linear-gradient(#33bdef, #019ad2);
-    cursor: pointer;
-    transition: background-color 0.4s ease-in-out;
+  font-size: 15px;
+  font-family: Arial;
+  width: 40%;
+  height: 50px;
+  border-width: 1px;
+  color: #ffffff;
+  border-color: #057fd0;
+  font-weight: bold;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: 0px 1px 0px 0px #f0f7fa;
+  text-shadow: 0px -1px 0px #5b6178;
+  background: linear-gradient(#33bdef, #019ad2);
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
 }
 
 .admin-edit-exercise-button button:hover {
-    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
-    transform: translateY(-3px);
-    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
-    background: linear-gradient(#019ad2, #33bdef);
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+  transform: translateY(-3px);
+  transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+  background: linear-gradient(#019ad2, #33bdef);
 }

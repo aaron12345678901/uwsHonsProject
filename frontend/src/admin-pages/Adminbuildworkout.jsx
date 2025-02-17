@@ -59,14 +59,17 @@ const Adminbuildworkout = () => {
         </ul>
       </div>
 
-      <div className="User-exercise-container">
+      <div className="admin-build-container">
         <div className="userworkout-container-heading">
-          <div className="workout-input-container">
+          <div className="admin-workout-input-container">
+              
+            <h2>please enter the name and level of new workout</h2>
+
             <input
               type="text"
               value={newWorkoutName}
               onChange={(e) => setNewWorkoutName(e.target.value)}
-              placeholder="Enter workout name"
+              placeholder="Enter workout name:"
             />
             <input
               type="text"
@@ -74,14 +77,13 @@ const Adminbuildworkout = () => {
               onChange={(e) => setLevel(e.target.value)}
               placeholder="Enter workout level (e.g., Beginner, Intermediate, Advanced)"
             />
-            <button onClick={handleCreateWorkout}>
-              {workoutId ? "Update Workout" : "Create Workout"}
-            </button>
+            <div className="register-form-buttons">
+              <button onClick={handleCreateWorkout}>
+                {workoutId ? "Update Workout" : "Create Workout"}
+              </button>
+            </div>
           </div>
         </div>
-
-       
-
       </div>
     </div>
   );

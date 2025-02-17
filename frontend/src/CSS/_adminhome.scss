@@ -126,3 +126,28 @@
     transform: translateY(-3px);
     transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
 }
+
+
+
+.admin-home-bottom-link{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    
+}
+
+.admin-home-links-bottom{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.admin-home-links-bottom h2 {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}

@@ -97,8 +97,9 @@ const AdminEditworkout = () => {
       </div>
 
       <div className="User-exercise-container">
-        <div className="userworkout-container-heading">
-          <div className="workout-input-container">
+        <div className="admin-edit-workout-container-heading">
+          <div className="admin-edit-input-container">
+            <h2>please enter the name of the workout </h2>
             <input
               type="text"
               value={newWorkoutName}
@@ -117,7 +118,7 @@ const AdminEditworkout = () => {
           ) : (
             <ul>
               {userData.map((exercise, index) => (
-                <li key={index}>
+                <li className="userworkout-container-body2-order" key={index}>
                   <div className="user-exercise-left">
                     <h1>{exercise.exercise_name}</h1>
                     <h3>Reps: {exercise.Exercise_Reps}</h3>

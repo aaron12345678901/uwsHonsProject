@@ -126,6 +126,9 @@
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
     transform: translateY(-5px);
     transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+transition: font-size 0.3s ease-in-out;
+    font-size: large;
+
 }
 
 .home-first-con-left {
@@ -142,16 +145,22 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    
 }
 
-.home-first-con-right:hover {
-    transition: font-size 0.3s ease-in-out;
-    font-size: large;
+
+
+.home-first-con-right h2 {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    color: #000;
 }
 
 .home-first-con-right p {
     margin-left: 20px;
     margin-right: 20px;
+    margin-top: 30px;
 }
 
 .home-second-con {
@@ -179,6 +188,11 @@
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
     transform: translateY(-5px);
     transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    transition: font-size 0.3s ease-in-out;
+    font-size: large;
+
+
+
 }
 
 .home-second-con-left {
@@ -189,10 +203,20 @@
     text-align: center;
 }
 
-.home-second-con-left:hover {
-    transition: font-size 0.3s ease-in-out;
-    font-size: large;
+.home-second-con-left h2 {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    color: #000;
 }
+
+.home-second-con-left p {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+
 
 .home-second-con-right {
     width: 55%;
@@ -229,6 +253,8 @@
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
     transform: translateY(-5px);
     transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    transition: font-size 0.3s ease-in-out;
+    font-size: large;
 }
 
 .home-third-con-left {
@@ -247,14 +273,19 @@
     text-align: center;
 }
 
-.home-third-con-right:hover {
-    transition: font-size 0.3s ease-in-out;
-    font-size: large;
+
+
+.home-third-con-right h2 {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    color: #000;
 }
 
 .home-third-con-right p {
     margin-left: 20px;
     margin-right: 20px;
+    margin-top: 30px;
 }
 
 .home-bottome-para-cont {
@@ -267,7 +298,12 @@
 
 .home-bottome-para {
     text-align: center;
-    width: 50%;
+    width: 70%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    border-radius: 8px;
+   
 }
 
 .home-bottome-para p {

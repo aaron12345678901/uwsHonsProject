@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 const Aboutus = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("working");
-    };
 
     return (
         <div className="Aboutus">
@@ -83,7 +79,11 @@ const Aboutus = () => {
 
             <div className="aboutus-bottom">
                 <h2>"Start Your Fitness Journey Today!"</h2>
-                <button onClick={handleSubmit}>Sign up now!</button>
+
+                <Link to="/register">
+                <button>Sign up now!</button>
+                </Link>
+
             </div>
         </div>
     );

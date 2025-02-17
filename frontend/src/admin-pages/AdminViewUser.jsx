@@ -56,6 +56,9 @@ const AdminViewUser = () => {
       </div>
 
       <div className="User-exercise-container">
+      <div className="Admin-all-users-heading">
+          <h2>Users Details</h2>
+        </div>
         <div className="admin-view-users-details">
           <p>id: {userData[0]?.id}</p>
           <p>Users Name: {userData[0]?.name}</p>
@@ -87,7 +90,7 @@ const AdminViewUser = () => {
                 const { name, id } = getWorkoutForDay(day);
                 return (
                   <li key={day}>
-                    <p>{short}</p> <p>{name}</p>
+                    <p>Day: {short}</p> <p>Workout Name: {name}</p>
                     {id ? (
                       <Link
                         to={`/AdminusersWorkout/${id}`} // Navigate with workout ID

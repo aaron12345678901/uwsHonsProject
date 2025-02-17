@@ -41,7 +41,7 @@ const AdminAllUsers = () => {
   };
 
   return (
-    <div className="Admin-Home">
+    <div className="Admin-all-users">
       <div className="nav">
         <ul>
           <li><a href="#">About us</a></li>

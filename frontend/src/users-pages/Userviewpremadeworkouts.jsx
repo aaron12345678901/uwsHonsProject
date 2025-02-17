@@ -1,41 +1,44 @@
-import { useParams, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const AdminusersWorkout = () => {
+const Userviewpremadeworkouts = () => {
   const { id } = useParams(); // Get workout ID from URL
-
-  const location = useLocation();
-  const { day, workoutName } = location.state || {}; // Get workout details from state
-  const [workoutDetails, setWorkoutDetails] = useState(null);
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [workoutId, setWorkoutId] = useState(null);
+  const [WorkoutName, setWorkoutName] = useState("");
 
   useEffect(() => {
+    setLoading(true);
     axios
       .post(
-        `http://localhost/php-react/firstfitness/AdminGetUsersWorkout.php?id=${id}`
+        `http://localhost/php-react/firstfitness/GetpremadeWorkout.php?id=${id}`
       )
       .then((response) => {
-        setWorkoutDetails(response.data);
-        setUserData(response.data.exercises || []); // Set exercises to userData
-        console.log(response.data);
-      })
-      .catch((error) => console.error(error));
+        setUserData(response.data.exercises || []);
+        if (response.data.workout_id) {
+          setWorkoutId(response.data.workout_id);
+          setWorkoutName(response.data.workout_name);
+          console.log(response.data);
+        }
+        setLoading(false);
+      });
   }, [id]);
 
+  
+
+
+
   const totalWorkoutTime = userData.reduce(
-    (total, exercise) => total + exercise.time,
+    (total, exercise) => total + (exercise.time || 0),
     0
   );
 
   return (
-
-    
-    <div className="Admin-user-workout">
-
-
-<div className="nav">
+    <div className="User-profile">
+      <div className="nav">
         <ul>
           <li>
             <a href="#">About us</a>
@@ -46,16 +49,10 @@ const AdminusersWorkout = () => {
         </ul>
       </div>
 
-
-  <div className="Admin-user-position">
-      
-
       <div className="User-exercise-container">
-      <div className="Admin-users-workout">
-          <h1>Workout for {day}</h1>
-           <h2>{workoutName}</h2>
+        <div className="userworkout-container-heading">
+        <h1>{WorkoutName}</h1>
         </div>
-        
 
         <div className="userworkout-container-body2">
           {loading ? (
@@ -68,6 +65,7 @@ const AdminusersWorkout = () => {
                     <h1>{exercise.exercise_name}</h1>
                     <h3>Reps: {exercise.Exercise_Reps}</h3>
                     <h3>Sets: {exercise.Exercise_Sets}</h3>
+                    <h3>Time: {exercise.time} minutes</h3>
                     <h3>
                       Rest Between Sets: {exercise.Rest_Between_Sets} minute(s)
                     </h3>
@@ -77,17 +75,20 @@ const AdminusersWorkout = () => {
                     <div className="exercise-img-container">
                       <div className="exercise-image">
                         <img
-                          src={`http://localhost/php-react/frontend/public/${exercise.exercise_image}`}
+                          src={`http://localhost/php-react/frontend/public/${exercise.img}`}
                           alt={exercise.exercise_name}
                         />
                       </div>
                     </div>
                   </div>
+               
                 </li>
               ))}
             </ul>
           )}
         </div>
+
+    
 
         <div className="user-workout-footer">
           <h1>
@@ -95,11 +96,8 @@ const AdminusersWorkout = () => {
           </h1>
         </div>
       </div>
-
-
-</div>
-
     </div>
   );
 };
-export default AdminusersWorkout;
+
+export default Userviewpremadeworkouts;

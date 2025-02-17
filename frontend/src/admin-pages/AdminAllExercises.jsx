@@ -170,7 +170,7 @@ const AdminAllExercises = () => {
           <div className="admin-all-exercises-addExercise-button">
           <button onClick={handleResetFilters} className="reset-button">
               Reset Filters
-            </button>
+          </button>
 
 
             <button onClick={handleaddExercise}>Add Exercise</button>

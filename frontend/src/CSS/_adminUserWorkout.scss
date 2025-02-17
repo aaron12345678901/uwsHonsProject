@@ -1,0 +1,28 @@
+.Admin-user-workout{
+    display: flex;
+    flex-direction: column;
+}
+
+.Admin-user-position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Admin-users-workout h1,h2{
+    color: black;
+    text-decoration: none;
+    text-transform: none;
+    font-size: x-large;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    margin-top: 30px;
+   text-align: center;
+}

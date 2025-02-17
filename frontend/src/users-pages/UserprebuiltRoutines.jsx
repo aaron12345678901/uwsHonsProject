@@ -9,7 +9,9 @@ const UserprebuiltRoutines = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .post(`http://localhost/php-react/firstfitness/adminGetpremadeworkouts.php`)
+      .post(
+        `http://localhost/php-react/firstfitness/adminGetpremadeworkouts.php`
+      )
       .then((response) => {
         setUserData(response.data);
         console.log(response.data);
@@ -48,11 +50,9 @@ const UserprebuiltRoutines = () => {
                   <p>Level: {data.level}</p>
                 </div>
                 <div className="user-pre-built-list-right">
-
-                  <button>View</button>
-
-                  <button>Add</button>
-                  
+                  <Link to={`/Userviewpremadeworkouts/${data.id}`}>
+                    <button>View and start workout</button>
+                  </Link>
                 </div>
               </li>
             ))}

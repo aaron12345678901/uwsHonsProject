@@ -11,6 +11,8 @@ const AdminPreMadeRoutines = () => {
     },
   };
 
+  
+
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -31,6 +33,27 @@ const AdminPreMadeRoutines = () => {
       });
   }, []);
 
+
+
+  const handleDeleteworkout = (id) => {
+    if (window.confirm("Are you sure you want to delete this workout?")) {
+      axios
+        .post("http://localhost/php-react/firstfitness/adminDeletepremadeworkout.php", {
+          id: id,
+        })
+        .then((response) => {
+          alert(response.data.message);
+          console.log("Deleting workout with ID:", id);
+  
+         
+          setUserData((prevData) => prevData.filter((workout) => workout.id !== id));
+        })
+        .catch((error) => {
+          console.error("Error deleting pre made workout:", error);
+        });
+    }
+  };
+
   return (
     <div className="Admin-add-Exercise">
       <div className="nav">
@@ -45,7 +68,7 @@ const AdminPreMadeRoutines = () => {
       </div>
       <div className="admin-exercise-container-all">
         <div className="admin-pre-made-heading">
-          <h1>Pre-Built Workouts</h1>
+          <h2>Pre-Built Workouts</h2>
         </div>
 
         <div className="admin-pre-made-routines-add-new-button">
@@ -59,7 +82,7 @@ const AdminPreMadeRoutines = () => {
             {userData.map((data) => (
               <li key={data.id}>
                 <div className="admin-pre-made-routines-list-left">
-                  <h3>{data.name}</h3>
+                  <h3>Name: {data.name}</h3>
                   <p>Level: {data.level}</p>
                 </div>
                 <div className="admin-pre-made-routines-list-right">
@@ -67,7 +90,11 @@ const AdminPreMadeRoutines = () => {
                     <Link to={`/AdminEditworkout/${data.id}`}>
                       <button>Edit</button>
                     </Link>
-                    <button>Delete</button>
+
+
+                    <button onClick={() => handleDeleteworkout(data.id)}>Delete</button>
+
+
                   </div>
                 </div>
               </li>

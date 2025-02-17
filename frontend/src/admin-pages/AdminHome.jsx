@@ -45,16 +45,16 @@ const AdminHome = () => {
 
         <div className="admin-home-links">
           <div className="admin-home-links-left">
-            <Link to="/AdminAllUsers">
-              <a className="admin-home-left-img" href=""></a>
+            <Link to="/AdminAllUsers" className="admin-home-left-img">
+              
             </Link>
 
             <h2>Users</h2>
           </div>
 
           <div className="admin-home-links-right">
-            <Link to="/AdminPreMadeRoutines">
-              <a className="admin-home-right-img" href=""></a>
+            <Link to="/AdminPreMadeRoutines" className="admin-home-right-img">
+              
             </Link>
 
             <h2>Workouts</h2>
@@ -62,10 +62,10 @@ const AdminHome = () => {
         </div>
 
 
-        <div className="admin-home-links">
-          <div className="admin-home-links-left">
-            <Link to="/AdminAllExercises">
-              <a className="admin-home-bottom-img" href=""></a>
+        <div className=".admin-home-bottom-link">
+          <div className="admin-home-links-bottom">
+            <Link to="/AdminAllExercises" className="admin-home-bottom-img">
+            
             </Link>
 
             <h2>Exercises</h2>
