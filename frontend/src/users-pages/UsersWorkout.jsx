@@ -19,15 +19,19 @@ const UsersWorkout = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .post(
-        `http://localhost/php-react/firstfitness/GetUserWorkout.php?id=${id}&day=${day}`
-      )
+      .post(`http://localhost/php-react/firstfitness/GetUserWorkout.php?id=${id}&day=${day}`)
       .then((response) => {
-        setUserData(response.data);
+        if (response.data && Array.isArray(response.data.exercises)) {
+          setUserData(response.data.exercises);
+        } else {
+          console.error("Unexpected API response:", response.data);
+          setUserData([]); // Fallback to an empty array
+        }
         setLoading(false);
       })
       .catch((error) => {
-        console.error(error);
+        console.error("API Error:", error);
+        setUserData([]); // Handle error by ensuring userData is still an array
         setLoading(false);
       });
   }, [id, day]);
@@ -46,10 +50,9 @@ const UsersWorkout = () => {
       });
   };
 
-  const totalWorkoutTime = userData.reduce(
-    (total, exercise) => total + exercise.time,
-    0
-  );
+  const totalWorkoutTime = Array.isArray(userData) 
+  ? userData.reduce((total, exercise) => total + (exercise.time || 0), 0)
+  : 0;
 
   return (
     <div className="User-profile">

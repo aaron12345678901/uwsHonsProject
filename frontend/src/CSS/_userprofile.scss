@@ -1,62 +1,62 @@
 .User-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .User-profile-container {
-    background-color: #d1e0e0;
-    width: 70vw;
-    border-radius: 8px;
-    border: 1px solid black;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    margin-bottom: 50px;
+  background-color: #d1e0e0;
+  width: 80vw;
+  border-radius: 8px;
+  border: 1px solid black;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .profile-top-section {
-    display: flex;
-    flex-direction: row;
-    margin-top: 50px;
-    align-items: center;
-    h2{
-        color: #000000;
-    }
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  align-items: center;
+  h2 {
+    color: #000000;
+  }
 }
 
 .profile-top-section-left {
-    display: flex;
-    flex-direction: column;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    word-spacing: -1.2px;
-    color: #000000;
-    font-weight: normal;
-    text-decoration: none;
-    font-style: normal;
-    font-variant: normal;
-    text-transform: none;
-    margin-left: 20px;
-    width: 60%;
-    transition: font-size 0.3s ease, transform 0.7s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  word-spacing: -1.2px;
+  color: #000000;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  margin-left: 20px;
+  width: 60%;
+  transition: font-size 0.3s ease, transform 0.7s ease-in-out;
 }
 
 .profile-top-section-left:hover {
-    font-size: large;
-    transition: font-size 0.3s ease, transform 0.7s ease-in-out;
+  font-size: large;
+  transition: font-size 0.3s ease, transform 0.7s ease-in-out;
 }
 
 .profile-top-section-left-order {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .profile-top-section-right {
-    width: 40%;
-    text-align: center;
+  width: 40%;
+  text-align: center;
 }
 
 .profile-top-section-right button {
@@ -66,94 +66,252 @@
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    width: 200px;
+    width: 130px;
+    font-size: 15px;
+    font-family: Arial;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #057fd0;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #5b6178;
+    background: linear-gradient(#33bdef, #019ad2);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+    margin-top: 10px;
 }
 
+
+
+
+
+
+
+
+
+
+
 .profile-top-section-right button:hover {
-    background-color: #89c788;
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
     transform: translateY(-3px);
     transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    background: linear-gradient(#019ad2, #33bdef);
 }
 
 @media screen and (min-width: 1000px) {
-    .User-profile-container {
-        width: 40vw;
-    }
+  .User-profile-container {
+    width: 60vw;
+  }
 }
 
 .profile-new-routine-position {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 .profile-new-routine {
-    border: #000000 2px solid;
-    width: 40%;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.5;
-    background-image: url("../generic-img/profile-new-routine.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    color: #f0f7fa;
-    text-shadow: 2px 2px 2px #ce5937;
-    cursor: pointer;
-    font-size: 30px;
+  border: #000000 2px solid;
+  width: 40%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  background-image: url("../generic-img/profile-new-routine.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  color: #f0f7fa;
+  text-shadow: 2px 2px 2px #ce5937;
+  cursor: pointer;
+  font-size: 30px;
 }
 
 .profile-new-routine:hover {
-    opacity: 1;
-    transition: opacity 0.5s ease;
-    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
-    transform: translateY(-3px);
-    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+  transform: translateY(-3px);
+  transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
 }
 
 .users-workout {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .users-workout li {
-    list-style: none;
-    font-size: larger;
-    border-bottom: 2px solid black;
-    width: 90%;
-    transition: font-size 0.3s ease, transform 0.7s ease-in-out;
+  list-style: none;
+  font-size: larger;
+  border-bottom: 2px solid black;
+  width: 90%;
+  transition: font-size 0.3s ease, transform 0.7s ease-in-out;
 }
 
 .users-workout li:hover {
-    font-size: x-large;
-    transition: font-size 0.3s ease, transform 0.7s ease-in-out;
+  font-size: x-large;
+  transition: font-size 0.3s ease, transform 0.7s ease-in-out;
 }
 
 .users-workout-row {
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-profile-buttons {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .users-workout-row-button button {
+  background-color: #a4d4ae;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 130px;
+
+  font-size: 15px;
+  font-family: Arial;
+  height: 50px;
+  border-width: 1px;
+  color: #ffffff;
+  border-color: #057fd0;
+  font-weight: bold;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: 0px 1px 0px 0px #f0f7fa;
+  text-shadow: 0px -1px 0px #5b6178;
+  background: linear-gradient(#33bdef, #019ad2);
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.users-workout-row-button button:hover {
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+  transform: translateY(-3px);
+  transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+  background: linear-gradient(#019ad2, #33bdef);
+}
+
+
+
+.modal-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.model-seperator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.model-seperator input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.model-seperator button{
     background-color: #a4d4ae;
     color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    width: 150px;
+    width: 130px;
+    font-size: 15px;
+    font-family: Arial;
+    height: 50px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #057fd0;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    text-shadow: 0px -1px 0px #5b6178;
+    background: linear-gradient(#33bdef, #019ad2);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+    margin-top: 10px;
 }
 
-.users-workout-row-button button:hover {
-    background-color: #89c788;
+
+.model-seperator button:hover {
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
     transform: translateY(-3px);
+    transition: box-shadow 0.3s ease, transform 0.7s ease-in-out;
+    background: linear-gradient(#019ad2, #33bdef);
+  }
+  
+
+
+
+
+
+@media (max-width: 1292px) {
+  .users-workout-row-button button {
+    width: 100px;
+  }
+}
+
+@media (max-width: 1010px) {
+  .users-workout li {
+    list-style: none;
+    font-size: medium;
+  }
+}
+
+@media (max-width: 780px) {
+  .user-profile-buttons {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (max-width: 486px) {
+  .users-workout-row {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

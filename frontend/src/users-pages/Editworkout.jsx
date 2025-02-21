@@ -111,6 +111,8 @@ const Editworkout = () => {
       <div className="User-exercise-container">
         <div className="userworkout-container-heading">
           <h1>{day}</h1>
+          <h2>Workout Name: {workoutName}</h2>
+          <h2>Please enter name to begin</h2>
           <div className="workout-input-container">
             <input
               type="text"
