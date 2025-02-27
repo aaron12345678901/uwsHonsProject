@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import Logout from "../components/Logout";
 
 const UserprebuiltRoutines = () => {
   const [userData, setUserData] = useState([]);
@@ -25,16 +26,7 @@ const UserprebuiltRoutines = () => {
 
   return (
     <div className="User-profile">
-      <div className="nav">
-        <ul>
-          <li>
-            <a href="#">About us</a>
-          </li>
-          <li>
-            <a href="#">Log out</a>
-          </li>
-        </ul>
-      </div>
+     <Logout/>
 
       <div className="User-Prebuilt-container">
         <div className="user-pre-built-heading">

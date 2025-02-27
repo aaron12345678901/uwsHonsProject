@@ -1,7 +1,7 @@
 import { useParams, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import Logout from "../components/Logout";
 const AdminusersWorkout = () => {
   const { id } = useParams(); // Get workout ID from URL
 
@@ -35,16 +35,7 @@ const AdminusersWorkout = () => {
     <div className="Admin-user-workout">
 
 
-<div className="nav">
-        <ul>
-          <li>
-            <a href="#">About us</a>
-          </li>
-          <li>
-            <a href="#">Log out</a>
-          </li>
-        </ul>
-      </div>
+<Logout/>
 
 
   <div className="Admin-user-position">

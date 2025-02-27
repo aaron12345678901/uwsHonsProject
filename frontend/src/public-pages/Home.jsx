@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import homeheadImage from "../generic-img/home-head.svg";
 
+
 const Home = () => {
     const homeFirstConRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -38,6 +39,7 @@ const Home = () => {
                     <li>
                         <Link to="/register">Register</Link>
                     </li>
+                    
                 </ul>
             </div>
 

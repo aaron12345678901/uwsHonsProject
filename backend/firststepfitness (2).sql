@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2025 at 07:49 PM
+-- Generation Time: Feb 27, 2025 at 08:34 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -87,9 +87,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `age`, `weightstone`, `weightpounds`, `is_admin`, `experience`, `workouts_complete`) VALUES
-(4, 'Aaron', 'aaron-mc93@hotmail.co.uk', '$2y$10$i59vzJMk0E/kdpg0FOMxiuv4Wq1kmfIOEdfbb.5G0qU0J/7C79Hki', 31, 16, 4, 0, 0, 9),
+(4, 'Aaron', 'aaron-mc93@hotmail.co.uk', '$2y$10$i59vzJMk0E/kdpg0FOMxiuv4Wq1kmfIOEdfbb.5G0qU0J/7C79Hki', 31, 16, 4, 0, 0, 10),
 (7, 'admin', 'admin@admin.com', '$2y$10$VOQitCIuzYCMvUha7vVvmO6eXZSNW0zFcjra6tqnynY7ojMjfYg1W', 1, 1, 1, 1, 0, 0),
-(9, 'user', 'user@user.com', '$2y$10$MN/03S/LL75NRNpK6uEwQe5ZQvHmNL.CCYoC7COBlw8E3tjPFpPrG', 1, 1, 1, 0, 0, 0);
+(9, 'user', 'user@user.com', '$2y$10$MN/03S/LL75NRNpK6uEwQe5ZQvHmNL.CCYoC7COBlw8E3tjPFpPrG', 1, 1, 1, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -115,11 +115,12 @@ INSERT INTO `workouts` (`id`, `user_id`, `name`, `day_of_week`, `is_prebuilt`, `
 (3, 4, 'chest and triceps ', 'Wednesday', 0, NULL),
 (4, 4, 'Rest Daydd', 'Tuesday', 0, NULL),
 (5, 4, 'Rest Daytest', 'Thursday', 0, NULL),
-(9, 7, 'test workout', NULL, 1, 'beginner'),
-(10, 7, 'aaronr', NULL, 1, 'beginner'),
+(9, 7, 'Back Day', NULL, 1, 'beginner'),
+(10, 7, 'Legs', NULL, 1, 'beginner'),
 (13, 9, 'Rest Day', 'Monday', 0, NULL),
-(14, 7, 'new one', NULL, 1, 'Beginner'),
-(15, 4, 'Rest Day11', 'Saturday', 0, NULL);
+(14, 7, 'Biceps and Back', NULL, 1, 'Beginner'),
+(15, 4, 'Rest Day11', 'Saturday', 0, NULL),
+(16, 7, 'diabetes buster', NULL, 1, 'Advanced');
 
 -- --------------------------------------------------------
 
@@ -154,17 +155,23 @@ INSERT INTO `workout_exercises` (`id`, `workout_id`, `exercise_id`) VALUES
 (20, 4, 21),
 (21, 5, 21),
 (22, 5, 21),
-(24, 9, 22),
-(25, 9, 29),
-(27, 9, 22),
 (29, 2, 22),
-(31, 10, 24),
-(32, 10, 25),
-(35, 9, 24),
-(36, 14, 21),
-(37, 14, 25),
-(38, 14, 24),
-(39, 2, 29);
+(40, 13, 40),
+(41, 9, 26),
+(42, 9, 27),
+(43, 9, 25),
+(44, 16, 21),
+(45, 16, 22),
+(46, 16, 24),
+(47, 16, 38),
+(48, 10, 29),
+(49, 10, 30),
+(50, 10, 31),
+(51, 14, 25),
+(52, 14, 26),
+(53, 14, 27),
+(54, 14, 38),
+(55, 14, 39);
 
 --
 -- Indexes for dumped tables
@@ -217,13 +224,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `workouts`
 --
 ALTER TABLE `workouts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `workout_exercises`
 --
 ALTER TABLE `workout_exercises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- Constraints for dumped tables

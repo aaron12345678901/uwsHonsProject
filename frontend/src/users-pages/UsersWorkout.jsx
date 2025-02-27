@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import Logout from "../components/Logout";
 
 const UsersWorkout = () => {
   const location = useLocation();
@@ -56,16 +57,7 @@ const UsersWorkout = () => {
 
   return (
     <div className="User-profile">
-      <div className="nav">
-        <ul>
-          <li>
-            <a href="#">About us</a>
-          </li>
-          <li>
-            <a href="#">Log out</a>
-          </li>
-        </ul>
-      </div>
+      <Logout/>
 
       <div className="User-exercise-container">
         <div className="userworkout-container-heading">

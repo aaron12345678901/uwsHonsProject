@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Logout from "../components/Logout";
 const UserCustomWorkout = () => {
   const UsersWorkout = {
     id: "placeholder",
@@ -8,16 +8,7 @@ const UserCustomWorkout = () => {
 
   return (
     <div className="User-profile">
-      <div className="nav">
-        <ul>
-          <li>
-            <a href="#">About us</a>
-          </li>
-          <li>
-            <a href="#">Log out</a>
-          </li>
-        </ul>
-      </div>
+      <Logout/>
 
       <div className="User-Prebuilt-container">
         <div className="user-pre-built-heading">

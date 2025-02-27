@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-
+import Logout from "../components/Logout";
 const AdminPreMadeRoutines = () => {
   const PreMadeRoutines = {
     exercise: {
@@ -56,16 +56,7 @@ const AdminPreMadeRoutines = () => {
 
   return (
     <div className="Admin-add-Exercise">
-      <div className="nav">
-        <ul>
-          <li>
-            <a href="#">About us</a>
-          </li>
-          <li>
-            <a href="#">Log out</a>
-          </li>
-        </ul>
-      </div>
+     <Logout/>
       <div className="admin-exercise-container-all">
         <div className="admin-pre-made-heading">
           <h2>Pre-Built Workouts</h2>

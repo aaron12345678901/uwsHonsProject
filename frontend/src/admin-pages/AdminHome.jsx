@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
+import Logout from "../components/Logout";
 const AdminHome = () => {
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -27,16 +27,7 @@ const AdminHome = () => {
 
   return (
     <div className="Admin-Home">
-      <div className="nav">
-        <ul>
-          <li>
-            <a href="#">About us</a>
-          </li>
-          <li>
-            <a href="#">Log out</a>
-          </li>
-        </ul>
-      </div>
+     <Logout/>
 
       <div className="User-exercise-container">
         <div className="admin-home-heading">

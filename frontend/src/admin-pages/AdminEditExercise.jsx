@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import Logout from "../components/Logout";
 const AdminEditExercise = () => {
   const { id } = useParams();
   const [formData, setFormData] = useState({
@@ -81,16 +81,7 @@ const AdminEditExercise = () => {
 
   return (
     <div className="Admin-Home">
-      <div className="nav">
-        <ul>
-          <li>
-            <a href="#">About us</a>
-          </li>
-          <li>
-            <a href="#">Log out</a>
-          </li>
-        </ul>
-      </div>
+      <Logout/>
 
       <div className="admin-exercise-container-all">
         <div className="admin-edit-exercise-container">

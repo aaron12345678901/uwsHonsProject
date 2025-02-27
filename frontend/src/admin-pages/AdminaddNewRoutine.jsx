@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Logout from "../components/Logout";
 const AdminAddNewRoutine = () => {
     const [routine, setRoutine] = useState({
         id: "",
@@ -14,16 +14,7 @@ const AdminAddNewRoutine = () => {
 
     return (
         <div className="User-profile">
-            <div className="nav">
-                <ul>
-                    <li>
-                        <a href="#">About us</a>
-                    </li>
-                    <li>
-                        <a href="#">Log out</a>
-                    </li>
-                </ul>
-            </div>
+           <Logout/>
 
             <div className="User-exercise-container">
                 <div className="admin-add-new-routine-head">

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import Logout from "../components/Logout";
 const AdminAddExercise = () => {
   const [exerciseData, setExerciseData] = useState({
     name: "",
@@ -69,16 +69,7 @@ const AdminAddExercise = () => {
 
   return (
     <div className="Admin-Home">
-      <div className="nav">
-        <ul>
-          <li>
-            <a href="#">About us</a>
-          </li>
-          <li>
-            <a href="#">Log out</a>
-          </li>
-        </ul>
-      </div>
+      <Logout/>
 
       <div className="admin-exercise-container-all">
         <div className="admin-edit-exercise-container">
