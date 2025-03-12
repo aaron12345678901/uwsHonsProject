@@ -1,27 +1,24 @@
 import "./CSS/style.scss";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-// public pages/////////
+// Public Pages
 import Home from "./public-pages/Home";
 import Register from "./public-pages/Register";
 import Login from "./public-pages/Login";
 import Aboutus from "./public-pages/Aboutus";
 
-///////////users pages////////
+// User Pages
 import Userprofile from "../src/users-pages/Userprofile";
 import UserWorkout from "../src/users-pages/UsersWorkout";
 import UserEditworkout from "../src/users-pages/Editworkout";
 import UserBuildWorkout from "../src/users-pages/UserBuildWorkout";
-// import UserNewRoutine from "../src/users-pages/UserNewRoutine";
 import UserPreBuiltRoutine from "../src/users-pages/UserprebuiltRoutines";
 import UserCustomWorkout from "./users-pages/UserCustomWorkout";
 import Userviewpremadeworkouts from "../src/users-pages/Userviewpremadeworkouts";
 
-///////////Admin pages////////
+// Admin Pages
 import AdminHome from "../src/admin-pages/AdminHome";
 import AdminAllUsers from "./admin-pages/AdminAllUsers";
 import AdminViewUser from "./admin-pages/AdminViewUser";
@@ -29,12 +26,24 @@ import AdminAllExercises from "./admin-pages/AdminAllExercises";
 import AdminEditExercise from "./admin-pages/AdminEditExercise";
 import AdminAddExercise from "./admin-pages/AdminAddExercise";
 import AdminPreMadeRoutines from "./admin-pages/AdminPreMadeRoutines";
-// import AdminaddNewRoutine from "./admin-pages/AdminaddNewRoutine";
-// import AdminEditRoutineWorkout from "./admin-pages/AdminEditRoutineWorkout";
 import AdminusersWorkout from "./admin-pages/AdminusersWorkout";
 import Adminbuildworkout from "./admin-pages/Adminbuildworkout";
 import AdminEditworkout from "./admin-pages/AdminEditworkout";
 import AdminAddExerciseToWorkout from "./admin-pages/AdminAddExerciseToWorkout";
+
+// JWT Authentication Check
+const getToken = () => localStorage.getItem("token");
+
+// Protected Route Component
+const ProtectedRoute = ({ children }) => {
+  const token = getToken();
+
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
+
+  return children;
+};
 
 function App() {
   return (
@@ -42,37 +51,159 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Aboutus />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* users Routes */}
-          <Route path="/Userprofile" element={<Userprofile />} />
-          <Route path="/UserWorkout" element={<UserWorkout />} />
-          <Route path="/UserEditworkout" element={<UserEditworkout />} />
-          <Route path="/UserBuildWorkout" element={<UserBuildWorkout />} />
-          {/* <Route path="/UserNewRoutine" element={<UserNewRoutine />} /> */}
-          <Route path="/UserPreBuiltRoutine"element={<UserPreBuiltRoutine />}/>
-          <Route path="/UserCustomWorkout" element={<UserCustomWorkout />} />
-          <Route path="/Userviewpremadeworkouts/:id" element={<Userviewpremadeworkouts />} />
+          {/* Protected User Routes */}
+          <Route
+            path="/Userprofile"
+            element={
+              <ProtectedRoute>
+                <Userprofile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/UserWorkout"
+            element={
+              <ProtectedRoute>
+                <UserWorkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/UserEditworkout"
+            element={
+              <ProtectedRoute>
+                <UserEditworkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/UserBuildWorkout"
+            element={
+              <ProtectedRoute>
+                <UserBuildWorkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/UserPreBuiltRoutine"
+            element={
+              <ProtectedRoute>
+                <UserPreBuiltRoutine />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/UserCustomWorkout"
+            element={
+              <ProtectedRoute>
+                <UserCustomWorkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/Userviewpremadeworkouts/:id"
+            element={
+              <ProtectedRoute>
+                <Userviewpremadeworkouts />
+              </ProtectedRoute>
+            }
+          />
 
-          {/* {admin pages } */}
-          <Route path="/AdminHome" element={<AdminHome />} />
-
-          <Route path="/AdminAllUsers" element={<AdminAllUsers />} />
-          <Route path="/AdminViewUser/:id" element={<AdminViewUser />} />
-          <Route path="/AdminusersWorkout/:id"element={<AdminusersWorkout />}/>
-          <Route path="/AdminPreMadeRoutines"element={<AdminPreMadeRoutines />}/>
-          <Route path="/Adminbuildworkout" element={<Adminbuildworkout />} />
-          <Route path="/AdminEditworkout/:id" element={<AdminEditworkout />} />
-          <Route path="/AdminAddExerciseToWorkout"element={<AdminAddExerciseToWorkout />}/>
-
-          <Route path="/AdminAllExercises" element={<AdminAllExercises />} />
-          <Route path="/AdminAddExercise" element={<AdminAddExercise />} />
-          <Route path="/AdminEditExercise/:id"element={<AdminEditExercise />}/>
-
-          {/* <Route path="/AdminaddNewRoutine" element={<AdminaddNewRoutine />} /> */}
+          {/* Protected Admin Routes */}
+          <Route
+            path="/AdminHome"
+            element={
+              <ProtectedRoute>
+                <AdminHome />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AdminAllUsers"
+            element={
+              <ProtectedRoute>
+                <AdminAllUsers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AdminViewUser/:id"
+            element={
+              <ProtectedRoute>
+                <AdminViewUser />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AdminusersWorkout/:id"
+            element={
+              <ProtectedRoute>
+                <AdminusersWorkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AdminPreMadeRoutines"
+            element={
+              <ProtectedRoute>
+                <AdminPreMadeRoutines />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/Adminbuildworkout"
+            element={
+              <ProtectedRoute>
+                <Adminbuildworkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AdminEditworkout/:id"
+            element={
+              <ProtectedRoute>
+                <AdminEditworkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AdminAddExerciseToWorkout"
+            element={
+              <ProtectedRoute>
+                <AdminAddExerciseToWorkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AdminAllExercises"
+            element={
+              <ProtectedRoute>
+                <AdminAllExercises />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AdminAddExercise"
+            element={
+              <ProtectedRoute>
+                <AdminAddExercise />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AdminEditExercise/:id"
+            element={
+              <ProtectedRoute>
+                <AdminEditExercise />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
         <Footer />
       </div>

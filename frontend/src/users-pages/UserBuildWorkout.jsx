@@ -3,7 +3,7 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logout from "../components/Logout";
 
-const UsersWorkout = () => {
+const  UsersBuildWorkout = () => {
   const [showMuscleDropdown, setShowMuscleDropdown] = useState(false);
   const [showEquipmentDropdown, setShowEquipmentDropdown] = useState(false);
   const [selectedMuscle, setSelectedMuscle] = useState("Select Muscle");
@@ -199,4 +199,4 @@ const UsersWorkout = () => {
   );
 };
 
-export default UsersWorkout;
+export default UsersBuildWorkout;

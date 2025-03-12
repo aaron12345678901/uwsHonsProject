@@ -4,7 +4,7 @@ import instagram from "../generic-img/instagram.png";
 import footerlogo from "../generic-img/logo-no-background.svg";
 
 
-const Header = () => {
+const Footer = () => {
     return (
         <div className="Footer">
 
@@ -25,4 +25,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Footer;

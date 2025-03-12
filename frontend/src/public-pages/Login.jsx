@@ -8,6 +8,8 @@ const Login = () => {
     password: "",
   });
 
+
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -27,13 +29,16 @@ const Login = () => {
       const response = await axios.get(url);
   
       if (response.data.Status === "200") {
-        const { name, email, id, is_admin } = response.data;
+        const { name, email, id, is_admin, token } = response.data;
   
+       console.log(response.data)
+
+
         // Store user details in local storage
         window.localStorage.setItem("userName", name);
         window.localStorage.setItem("email", email);
         window.localStorage.setItem("id", id);
-        
+        window.localStorage.setItem("token", token);
   
         // Navigate based on admin status
         if (is_admin === "1") {
